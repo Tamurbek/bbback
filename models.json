@@ -1,0 +1,79 @@
+"nok": {
+  "user": [
+    {
+      "id": 1,
+      "name": "user ismi",
+      "phoneNumber": 999201231223,
+      "tuman": "yashash tumani",
+      "address": "",
+      "userImg": "",
+      "userName": "",
+      "password": "",
+      "salonProfel": {
+        "id": 1,
+        "brendName": "Barbershop 'Uncle Chill' Broadway",
+        "address": "17 Matbuotchilar ko'chasi, Тоshkent 100047, Узбекистан",
+        "reyting": 2,
+        "reytingNumber": 32,
+        "phoneNumber": 998991212344,
+        "aboutSalon": "salon haqida ma`lumot",
+        "timeWork": "10:00 - 22:00",
+        "prasmotr": 231,
+        "profelImage": "https://lh5.googleusercontent.com/p/AF1QipM9o6lfzoMVaqbAlM4-0AaJ2_emBDXfGlT_hpB3=w408-h306-k-no",
+        "location": {
+          "latitude": 41.312036781163954,
+          "longitude": 69.27297150950889
+        },
+        "gallery": [
+          {
+            "clentImg": "https://spatime.by/wp-content/uploads/2022/06/barber-2.jpg",
+            "drection": "ogan soch styili",
+            "aboutImg": "rasmga master fikir bildirishi"
+            
+          },
+          {
+            "clentImg": "https://d2dfxqxblmblx4.cloudfront.net/images/hero/industry_barber.jpg",
+            "drection": "ogan soch styili",
+            "aboutImg": "rasmga master fikir bildirishi"
+          }
+        ],
+        "fidebk": [
+          {
+            "fidbekText": "Bildirilgan fikir",
+            "reyting": 2,
+            "time": "2023-11-21",
+            "like": 2
+          },
+          {
+            "fidbekText": "Bildirilgan fikir",
+            "reyting": 2,
+            "time": "2023-11-21",
+            "like": 2
+          }
+        ],
+        "master": [
+          {
+            "image": "https://corp.shoppingdeprecos.com.br/assets/frontend/pages/img/people/img2-large.jpg",
+            "name": "N Sherzod",
+            "position": "Barber"
+          },
+          {
+            "image": "https://www.shoppingcentreawards.com/wp-content/uploads/2015/06/people-img7.jpg",
+            "name": "B Alisher",
+            "position": "Barber"
+          },
+          {
+            "image": "https://thumbs.dreamstime.com/b/young-man-showing-rock-sign-his-fingers-as-if-listening-to-favourite-music-isolated-white-background-173443391.jpg",
+            "name": "K Dilshod",
+            "position": "Barber"
+          },
+          {
+            "image": "https://us.123rf.com/450wm/sevalv/sevalv1802/sevalv180200478/95351590-portrait-d-un-homme-m%C3%BBr-avec-une-barbe-et-une-moustache-%C3%A0-l-air-suspect-la-personne-l%C3%A8ve-un-sourcil.jpg",
+            "name": "Y Begzod",
+            "position": "Barber"
+          }
+        ]
+      }
+    }
+  ]
+},

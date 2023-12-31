@@ -1,0 +1,21 @@
+package com.example.bbback.model;
+
+import com.example.bbback.template.AbstractEntity;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+public class SalonGallery extends AbstractEntity{
+    private Long salonId;
+    private String originalName;
+    private String contentType;
+    private byte[] imageByte;
+}
