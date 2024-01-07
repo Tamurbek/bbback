@@ -13,10 +13,8 @@ import com.example.bbback.sevices.SalonProfService;
 import com.example.bbback.sevices.UserService;
 import com.example.bbback.template.Position;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +35,7 @@ public class UserServiceImp implements UserService {
     private final StorageService storageService;
 
     private final FileDataRepository fileDataRepository;
+
 
     @Override
     public ApiResponse createUser(UserDto userDto)throws IOException {

@@ -2,27 +2,32 @@ package com.example.bbback.controller;
 
 import com.example.bbback.dto.ApiResponse;
 import com.example.bbback.dto.UserDto;
-import com.example.bbback.sevices.ServiceImp.UserServiceImp;
+import com.example.bbback.model.UserImages;
+import com.example.bbback.repository.UserImageRepository;
 import com.example.bbback.sevices.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/user/")
 @RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final UserImageRepository userImageRepository;
 
+
+    @GetMapping("/index")
+    public String index(){
+        return "<h1>Salom Temur</h1>";
+    }
     @PostMapping("/register")
     public HttpEntity<?> userRegister(@Validated @ModelAttribute UserDto userDto) throws IOException {
         ApiResponse apiResponse= userService.createUser(userDto);
@@ -39,6 +44,14 @@ public class UserController {
     public HttpEntity<?> getIdUser(@PathVariable Long id){
         ApiResponse apiResponse=userService.getUser(id);
         return ResponseEntity.ok(apiResponse);
+    }
+
+    @GetMapping("/getUserImage/{id}")
+    public HttpEntity<?> getUserImage(@Validated @PathVariable Long id){
+        Optional<UserImages> image = userImageRepository.findById(id);
+        if (image.isEmpty())return ResponseEntity.ok("Image Not Found");
+        byte[] bytes = image.get().getImageByte();
+        return ResponseEntity.ok().contentType(MediaType.valueOf(image.get().getContentType())).body(bytes);
     }
 
     @GetMapping("/allUsers")

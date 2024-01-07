@@ -2,24 +2,29 @@ package com.example.bbback.controller;
 
 import com.example.bbback.dto.ApiResponse;
 import com.example.bbback.dto.MasterDto;
+import com.example.bbback.model.MasterImages;
+import com.example.bbback.model.UserImages;
+import com.example.bbback.repository.MasterImagesRepository;
 import com.example.bbback.sevices.MasterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/master")
+@RequestMapping("/api/master/")
 @RequiredArgsConstructor
 public class MasterController {
 
-    @Autowired
-    private MasterService masterService;
+    private final MasterService masterService;
+    private final MasterImagesRepository masterImagesRepository;
 
     @PostMapping("/createMaster")
     public HttpEntity<?> createMaster(@Validated @ModelAttribute MasterDto masterDto) throws IOException {
@@ -50,4 +55,13 @@ public class MasterController {
         ApiResponse apiResponse=masterService.getIdMaster(id);
         return ResponseEntity.ok(apiResponse);
     }
+
+    @GetMapping("/getMasterImage/{id}")
+    public HttpEntity<?> getUserImage(@Validated @PathVariable Long id){
+        Optional<MasterImages> image = masterImagesRepository.findById(id);
+        if (image.isEmpty())return ResponseEntity.ok("Image Not Found");
+        byte[] bytes = image.get().getImageByte();
+        return ResponseEntity.ok().contentType(MediaType.valueOf(image.get().getContentType())).body(bytes);
+    }
+
 }
